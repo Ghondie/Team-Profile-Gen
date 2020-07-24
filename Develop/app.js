@@ -46,7 +46,7 @@ function addMember() {
         {
             type: "list",
             name: "members",
-            message: "What team member do you watn to add",
+            message: "What team member do you want to add",
             choices: [
                 "Engineer",
                 "Intern",
@@ -54,14 +54,14 @@ function addMember() {
             ]
         }
     ]).then(function (answer) {
-        if (answer.type === "Engineer") {
+        if (answer.members === "Engineer") {
             createEngineer();
         }
-        else if (answer.type === "Intern") {
+        else if (answer.members === "Intern") {
             createIntern();
         }
         else {
-            render(teamMembers)
+            fs.writeFile(outputPath, render(teamMembers), function (error) { if (error) throw error })
         }
     })
 }

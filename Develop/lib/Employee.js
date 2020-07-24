@@ -9,7 +9,7 @@ class Employee {
     }
 
     getName() {
-        return this.id;
+        return this.name;
     }
     getEmail() {
         return this.email;
@@ -17,6 +17,9 @@ class Employee {
     getRole() {
         return "Employee";
     }
+    getId() {
+        return this.id;
+    }
 }
 
-module.export = Employee;
+module.exports = Employee;
