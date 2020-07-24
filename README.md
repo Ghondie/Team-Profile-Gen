@@ -22,7 +22,7 @@ How do you deliver this? Here are some guidelines:
 * Below is an example of what your application may look like. Remember, the styling is completely up to you so try to make it unique.
 
 ![Employee Summary 1](./Assets/10-OOP-homework-demo-1.png)
-![Employee Summary 2](./Assets/10-OOP-homework-demo-2.png)
+![Employee Summary 2](./Assets/run.gif)
 
 In the `Develop` folder, there is a `package.json`, so make sure to `npm install`.
 
