@@ -9,8 +9,62 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const teamMembers = [
 
+]
+function createManager() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "What is your name",
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "What is your email?",
+        },
+        {
+            type: "input",
+            name: "phone",
+            message: "What is your office number",
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "What is your id number",
+        }
 
+    ]).then(function (answers) {
+        const manager = new Manager(answers.name, parseInt(answers.id), answers.email, parseInt(answers.phone));
+        teamMembers.push(manager);
+        addMember();
+    });
+}
+function addMember() {
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "members",
+            message: "What team member do you watn to add",
+            choices: [
+                "Engineer",
+                "Intern",
+                "I dont want to add anyone else"
+            ]
+        }
+    ]).then(function (answer) {
+        if (answer.type === "Engineer") {
+            createEngineer();
+        }
+        else if (answer.type === "Intern") {
+            createIntern();
+        }
+        else {
+            render(teamMembers)
+        }
+    })
+}
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
